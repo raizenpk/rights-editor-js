@@ -1,0 +1,3 @@
+mat-toolbar ::ng-deep > span + a {
+  margin-left: 10px;
+}

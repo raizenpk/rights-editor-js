@@ -10,8 +10,12 @@
     "component-selector": [
       true,
       "element",
-      "app",
+      [
+        "app",
+        "core"
+      ],
       "kebab-case"
-    ]
+    ],
+    "no-empty-interface": false
   }
 }
