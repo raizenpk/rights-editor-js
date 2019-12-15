@@ -1,4 +1,19 @@
 <mat-accordion>
-  <app-user-list-item *ngFor="let user of users" [user]="user">
-  </app-user-list-item>
+  <mat-expansion-panel *ngFor="let user of users">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{user.firstName}} {{user.lastName}}
+
+        <mat-chip-list *ngIf="user.roles && user.roles.length" class="roles-list">
+          <mat-chip *ngFor="let role of user.roles" color="primary">{{role}}</mat-chip>
+        </mat-chip-list>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-user-list-item [user]="user"></app-user-list-item>
+
+    <mat-action-row>
+      <button color="primary" mat-flat-button>Edit</button>
+    </mat-action-row>
+  </mat-expansion-panel>
 </mat-accordion>

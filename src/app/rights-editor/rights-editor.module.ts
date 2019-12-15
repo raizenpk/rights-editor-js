@@ -13,7 +13,7 @@ import { UserListView } from './views/user-list/user-list.view';
 import { RouterModule } from '@angular/router';
 import { routes } from './rights-editor.routes';
 import { HttpClientModule } from '@angular/common/http';
-import { MatButtonModule, MatExpansionModule } from '@angular/material';
+import { MatButtonModule, MatChipsModule, MatExpansionModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserListItemComponent } from './components/user-list/user-list-item/user-list-item.component';
@@ -31,7 +31,8 @@ import { UserListItemComponent } from './components/user-list/user-list-item/use
     RouterModule.forChild(routes),
     HttpClientModule,
     MatExpansionModule,
-    MatButtonModule
+    MatButtonModule,
+    MatChipsModule
   ]
 })
 export class RightsEditorModule {
