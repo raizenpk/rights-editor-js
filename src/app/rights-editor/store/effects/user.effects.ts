@@ -13,9 +13,9 @@ export class UserEffects {
     ofType(UserActions.loadUsers.type),
     concatMap(() => this.userAPI.getAll()
       .pipe(
-        map(users => UserActions.loadUsersSuccess({users}),
-          catchError((error) => of(UserActions.loadUsersFailure({error})))
-        ))
+        map(users => UserActions.loadUsersSuccess({users})),
+        catchError((error) => of(UserActions.loadUsersFailure({error})))
+      )
     )
   );
 
