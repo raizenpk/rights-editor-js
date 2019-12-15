@@ -1,6 +1,8 @@
-<ul>
+<span class="permissions-list-title">Permissions</span>
+<ul class="permissions-list">
   <li *ngFor="let permission of permissions">
-    {{permission.resource}}
-    <span *ngFor="let operation of permission.operation"> {{operation}}</span>
+    <span class="operation-names">{{permission.operation.join(', ')}}</span>
+    @
+    <span class="resource-name">{{permission.resource}}</span>
   </li>
 </ul>

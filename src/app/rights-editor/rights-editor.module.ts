@@ -17,8 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserListItemComponent } from './components/user-list/user-list-item/user-list-item.component';
 import { UserPermissionsComponent } from './components/user-permissions/user-permissions.component';
-import { MatExpansionModule } from '@angular/material/typings/esm5/expansion';
-import { MatChipsModule } from '@angular/material/typings/esm5/chips';
+import { MatButtonModule, MatChipsModule, MatExpansionModule, MatListModule } from '@angular/material';
 
 @NgModule({
   declarations: [ UserListView, UserListComponent, UserListItemComponent, UserPermissionsComponent ],
@@ -33,7 +32,9 @@ import { MatChipsModule } from '@angular/material/typings/esm5/chips';
     RouterModule.forChild(routes),
     HttpClientModule,
     MatExpansionModule,
-    MatChipsModule
+    MatChipsModule,
+    MatButtonModule,
+    MatListModule
   ]
 })
 export class RightsEditorModule {

@@ -1,0 +1,18 @@
+.permissions-list-title {
+  padding-left: 15px;
+}
+
+.permissions-list {
+  list-style-type: none;
+  padding-left: 30px;
+  font-size: 15px;
+}
+
+.permissions-list .operation-names {
+
+}
+
+.permissions-list .resource-name {
+  font-size: 16px;
+  font-weight: 500;
+}

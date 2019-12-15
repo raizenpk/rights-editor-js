@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { RoleService } from '../../services/role.service';
 import { Permission } from '../../models/role';
+import { ResourceService } from '../../services/resource.service';
 
 @Component({
   selector: 'app-user-permissions',
@@ -13,7 +14,7 @@ export class UserPermissionsComponent implements OnChanges {
 
   public permissions: Permission[] = [];
 
-  constructor(private roleService: RoleService) {
+  constructor(private roleService: RoleService, private resourceService: ResourceService) {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
