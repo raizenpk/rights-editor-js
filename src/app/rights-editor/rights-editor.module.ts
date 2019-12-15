@@ -13,18 +13,25 @@ import { UserListView } from './views/user-list/user-list.view';
 import { RouterModule } from '@angular/router';
 import { routes } from './rights-editor.routes';
 import { HttpClientModule } from '@angular/common/http';
+import { MatButtonModule, MatExpansionModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { UserListItemComponent } from './components/user-list/user-list-item/user-list-item.component';
 
 @NgModule({
-  declarations: [ UserListView ],
+  declarations: [ UserListView, UserListComponent, UserListItemComponent ],
   imports: [
     CommonModule,
     CoreModule,
+    BrowserAnimationsModule,
     StoreModule.forFeature(fromUser.userFeatureKey, fromUser.reducer),
     EffectsModule.forFeature([ UserEffects, RoleEffects, ResourceEffects ]),
     StoreModule.forFeature(fromRole.roleFeatureKey, fromRole.reducer),
     StoreModule.forFeature(fromResource.resourceFeatureKey, fromResource.reducer),
     RouterModule.forChild(routes),
-    HttpClientModule
+    HttpClientModule,
+    MatExpansionModule,
+    MatButtonModule
   ]
 })
 export class RightsEditorModule {

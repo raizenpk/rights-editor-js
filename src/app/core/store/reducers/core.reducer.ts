@@ -1,20 +1,32 @@
 import * as fromRouter from '@ngrx/router-store';
-import { ActivatedRouteSnapshot, Params, RouterStateSnapshot } from '@angular/router';
-import { ActionReducerMap } from '@ngrx/store';
+import { ActivatedRouteSnapshot, Data, Params, RouterStateSnapshot } from '@angular/router';
+import { Action, ActionReducerMap } from '@ngrx/store';
 
 export const coreFeatureKey = 'core';
 
 export interface State {
-  router: fromRouter.RouterReducerState<RouterStateSnapshot>;
+  router: fromRouter.RouterReducerState<RouterStateUrl>;
 }
 
 export interface RouterStateUrl {
   url: string;
   params: Params;
   queryParams: Params;
+  data?: Data;
 }
 
-export const reducers: ActionReducerMap<State> = {
+export const initialState: State = {
+  router: {
+    state: {
+      url: window.location.pathname,
+      params: {},
+      queryParams: {}
+    },
+    navigationId: 0
+  }
+};
+
+export const reducers: ActionReducerMap<State, Action> = {
   router: fromRouter.routerReducer
 };
 
@@ -29,8 +41,8 @@ export class CustomSerializer
       state = state.firstChild;
     }
 
-    const {params} = state;
+    const {params, data} = state;
 
-    return {url, queryParams, params};
+    return {url, queryParams, params, data};
   }
 }

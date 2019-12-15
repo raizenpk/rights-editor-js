@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'core-layout-default',
@@ -7,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DefaultLayout implements OnInit {
 
-  constructor() {
+  public title = '';
+
+  constructor(private activatedRoute: ActivatedRoute) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.activatedRoute.firstChild.data.subscribe(data => {
+      this.title = data.title ? data.title : '';
+    });
   }
 
 }

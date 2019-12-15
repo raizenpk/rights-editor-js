@@ -13,6 +13,8 @@ import { BASE_API_URL } from './rights-editor/api';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { APP_TITLE as APP_TITLE_TOKEN } from './core/components/navbar/navbar.component';
 import { environment } from '../environments/environment';
+import * as CoreSelectors from './core/store/selectors/core.selectors';
+import { CustomSerializer } from './core/store/reducers/core.reducer';
 
 const APP_TITLE = 'Rights Editor';
 
@@ -32,7 +34,10 @@ const APP_TITLE = 'Rights Editor';
     RouterModule.forRoot(appRoutes),
     CoreModule,
     RightsEditorModule,
-    StoreRouterConnectingModule.forRoot()
+    StoreRouterConnectingModule.forRoot({
+      stateKey: CoreSelectors.selectRouter,
+      serializer: CustomSerializer
+    })
   ],
   providers: [
     {
