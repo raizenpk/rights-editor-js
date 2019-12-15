@@ -1,5 +1,6 @@
 <mat-accordion>
-  <mat-expansion-panel *ngFor="let user of users">
+  <mat-expansion-panel (opened)="onUserDetailsOpened(user.id)" *ngFor="let user of users"
+                       [expanded]="isUserDetailsOpen(user.id)">
     <mat-expansion-panel-header>
       <mat-panel-title>
         {{user.firstName}} {{user.lastName}}

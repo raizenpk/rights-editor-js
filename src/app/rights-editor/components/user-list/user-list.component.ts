@@ -11,11 +11,21 @@ export class UserListComponent {
   @Input() users: User[];
   @Output() editRoles = new EventEmitter<string>();
 
+  private openedDetailsUserId: string;
+
   constructor() {
   }
 
   public onEditRolesClicked(userId: string) {
     this.editRoles.emit(userId);
+  }
+
+  public onUserDetailsOpened(userId: string) {
+    this.openedDetailsUserId = userId;
+  }
+
+  public isUserDetailsOpen(userId: string): boolean {
+    return this.openedDetailsUserId === userId;
   }
 
 }
