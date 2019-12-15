@@ -1,5 +1,3 @@
-export enum CoreActionTypes {
-  LoadCores = '[Core] Load Cores',
-}
+const PREFIX = '[Core] ';
 
-export type CoreActions = null;
+export {};

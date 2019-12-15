@@ -1,20 +1,16 @@
-import { ResourceActions, ResourceActionTypes } from '../actions/resource.actions';
+import { Action, createReducer } from '@ngrx/store';
 
 export const resourceFeatureKey = 'resource';
 
 export interface State {
-
 }
 
 export const initialState: State = {};
 
-export function reducer(state = initialState, action: ResourceActions): State {
-  switch (action.type) {
+const resourceReducer = createReducer(
+  initialState
+);
 
-    case ResourceActionTypes.LoadResources:
-      return state;
-
-    default:
-      return state;
-  }
+export function reducer(state: State | undefined, action: Action) {
+  return resourceReducer(state, action);
 }

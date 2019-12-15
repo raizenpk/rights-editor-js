@@ -1,20 +1,17 @@
-import { RoleActions, RoleActionTypes } from '../actions/role.actions';
+import { Action, createReducer } from '@ngrx/store';
 
 export const roleFeatureKey = 'role';
 
 export interface State {
-
 }
 
 export const initialState: State = {};
 
-export function reducer(state = initialState, action: RoleActions): State {
-  switch (action.type) {
+const roleReducer = createReducer(
+  initialState
+);
 
-    case RoleActionTypes.LoadRoles:
-      return state;
-
-    default:
-      return state;
-  }
+export function reducer(state: State | undefined, action: Action) {
+  return roleReducer(state, action);
 }
+
