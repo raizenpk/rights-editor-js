@@ -3,11 +3,11 @@ import { RoleService } from '../../services/role.service';
 import { Permission } from '../../models/role';
 
 @Component({
-  selector: 'app-resource-list',
-  templateUrl: './resource-list.component.html',
-  styleUrls: [ './resource-list.component.css' ]
+  selector: 'app-user-permissions',
+  templateUrl: './user-permissions.component.html',
+  styleUrls: [ './user-permissions.component.css' ]
 })
-export class ResourceListComponent implements OnChanges {
+export class UserPermissionsComponent implements OnChanges {
 
   @Input() roles: string[];
 

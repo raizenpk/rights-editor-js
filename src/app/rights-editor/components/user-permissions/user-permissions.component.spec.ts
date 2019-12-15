@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ResourceListComponent } from './resource-list.component';
+import { UserPermissionsComponent } from './user-permissions.component';
 
 describe('ResourceListComponent', () => {
-  let component: ResourceListComponent;
-  let fixture: ComponentFixture<ResourceListComponent>;
+  let component: UserPermissionsComponent;
+  let fixture: ComponentFixture<UserPermissionsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ResourceListComponent ]
+      declarations: [ UserPermissionsComponent ]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ResourceListComponent);
+    fixture = TestBed.createComponent(UserPermissionsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

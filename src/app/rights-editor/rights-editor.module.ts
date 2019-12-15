@@ -13,14 +13,15 @@ import { UserListView } from './views/user-list/user-list.view';
 import { RouterModule } from '@angular/router';
 import { routes } from './rights-editor.routes';
 import { HttpClientModule } from '@angular/common/http';
-import { MatButtonModule, MatChipsModule, MatExpansionModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserListItemComponent } from './components/user-list/user-list-item/user-list-item.component';
-import { ResourceListComponent } from './components/resource-list/resource-list.component';
+import { UserPermissionsComponent } from './components/user-permissions/user-permissions.component';
+import { MatExpansionModule } from '@angular/material/typings/esm5/expansion';
+import { MatChipsModule } from '@angular/material/typings/esm5/chips';
 
 @NgModule({
-  declarations: [ UserListView, UserListComponent, UserListItemComponent, ResourceListComponent ],
+  declarations: [ UserListView, UserListComponent, UserListItemComponent, UserPermissionsComponent ],
   imports: [
     CommonModule,
     CoreModule,
@@ -32,7 +33,6 @@ import { ResourceListComponent } from './components/resource-list/resource-list.
     RouterModule.forChild(routes),
     HttpClientModule,
     MatExpansionModule,
-    MatButtonModule,
     MatChipsModule
   ]
 })
