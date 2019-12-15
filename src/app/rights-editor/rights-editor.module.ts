@@ -12,6 +12,7 @@ import { CoreModule } from '../core/core.module';
 import { UserListView } from './views/user-list/user-list.view';
 import { RouterModule } from '@angular/router';
 import { routes } from './rights-editor.routes';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [ UserListView ],
@@ -22,7 +23,8 @@ import { routes } from './rights-editor.routes';
     EffectsModule.forFeature([ UserEffects, RoleEffects, ResourceEffects ]),
     StoreModule.forFeature(fromRole.roleFeatureKey, fromRole.reducer),
     StoreModule.forFeature(fromResource.resourceFeatureKey, fromResource.reducer),
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    HttpClientModule
   ]
 })
 export class RightsEditorModule {

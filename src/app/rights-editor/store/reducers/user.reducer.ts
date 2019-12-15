@@ -1,20 +1,34 @@
-import { UserActions, UserActionTypes } from '../actions/user.actions';
+import * as UserActions from '../actions/user.actions';
+import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+import { User } from '../../models/user';
+import { Action, createReducer, on } from '@ngrx/store';
 
 export const userFeatureKey = 'user';
 
-export interface State {
-
+export interface State extends EntityState<User> {
 }
 
-export const initialState: State = {};
+export const adapter: EntityAdapter<User> =
+  createEntityAdapter<User>({
+    selectId: user => user.id
+  });
 
-export function reducer(state = initialState, action: UserActions): State {
-  switch (action.type) {
+export const initialState: State =
+  adapter.getInitialState();
 
-    case UserActionTypes.LoadUsers:
-      return state;
+const userReducer = createReducer(
+  initialState,
+  on(UserActions.loadUsers, (state) => {
+    return state;
+  }),
+  on(UserActions.loadUsersSuccess, (state, {users}) => {
+    return adapter.addAll(users, state);
+  }),
+  on(UserActions.loadUsersFailure, (state, {error}) => {
+    return state;
+  })
+);
 
-    default:
-      return state;
-  }
+export function reducer(state: State | undefined, action: Action) {
+  return userReducer(state, action);
 }

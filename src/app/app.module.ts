@@ -9,6 +9,9 @@ import { appRoutes } from './app.routes';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { BASE_API_URL } from './rights-editor/api';
+
+const APP_TITLE = 'Rights Editor';
 
 @NgModule({
   declarations: [
@@ -19,11 +22,14 @@ import { EffectsModule } from '@ngrx/effects';
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     RouterModule.forRoot(appRoutes),
-    CoreModule,
+    CoreModule.forRoot(APP_TITLE),
     RightsEditorModule,
     StoreRouterConnectingModule.forRoot()
   ],
-  providers: [],
+  providers: [ {
+    provide: BASE_API_URL,
+    useValue: 'https://my-json-server.typicode.com/tudor-ttv/interview'
+  } ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {

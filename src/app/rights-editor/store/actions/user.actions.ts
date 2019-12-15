@@ -1,14 +1,18 @@
-import { Action } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
+import { User } from '../../models/user';
 
-export enum UserActionTypes {
-  LoadUsers = '[User] Load Users',
+const PREFIX = '[Users] ';
 
+export const loadUsers = createAction(
+  PREFIX + 'loadUsers'
+);
 
-}
+export const loadUsersSuccess = createAction(
+  PREFIX + 'loadUsersSuccess',
+  props<{ users: User[] }>()
+);
 
-export class LoadUsers implements Action {
-  readonly type = UserActionTypes.LoadUsers;
-}
-
-
-export type UserActions = LoadUsers;
+export const loadUsersFailure = createAction(
+  PREFIX + 'loadUsersFailure',
+  props<{ error: any }>()
+);
