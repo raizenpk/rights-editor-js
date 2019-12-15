@@ -1,0 +1,6 @@
+<ul>
+  <li *ngFor="let permission of permissions">
+    {{permission.resource}}
+    <span *ngFor="let operation of permission.operation"> {{operation}}</span>
+  </li>
+</ul>

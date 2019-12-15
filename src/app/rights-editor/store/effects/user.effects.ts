@@ -19,7 +19,6 @@ export class UserEffects {
     )
   );
 
-
   constructor(private actions$: Actions, private userAPI: UserAPI) {
   }
 

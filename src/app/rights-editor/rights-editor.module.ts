@@ -17,9 +17,10 @@ import { MatButtonModule, MatChipsModule, MatExpansionModule } from '@angular/ma
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserListItemComponent } from './components/user-list/user-list-item/user-list-item.component';
+import { ResourceListComponent } from './components/resource-list/resource-list.component';
 
 @NgModule({
-  declarations: [ UserListView, UserListComponent, UserListItemComponent ],
+  declarations: [ UserListView, UserListComponent, UserListItemComponent, ResourceListComponent ],
   imports: [
     CommonModule,
     CoreModule,
