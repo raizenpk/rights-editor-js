@@ -26,7 +26,10 @@ const userReducer = createReducer(
   }),
   on(UserActions.loadUsersFailure, (state, {error}) => {
     return state;
-  })
+  }),
+  on(UserActions.patchUserSuccess, (state, {user}) => {
+    return adapter.updateOne({id: user.id, changes: user}, state);
+  }),
 );
 
 export function reducer(state: State | undefined, action: Action) {

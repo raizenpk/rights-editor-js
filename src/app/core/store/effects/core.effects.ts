@@ -4,7 +4,7 @@ import { Actions } from '@ngrx/effects';
 @Injectable()
 export class CoreEffects {
 
-  constructor(private actions$: Actions) {
+  constructor(private _actions$: Actions) {
   }
 
 }

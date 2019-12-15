@@ -13,7 +13,7 @@
     <app-user-list-item [user]="user"></app-user-list-item>
 
     <mat-action-row>
-      <button color="primary" mat-flat-button>Edit</button>
+      <button (click)="onEditRolesClicked(user.id)" color="primary" mat-flat-button>Edit Roles</button>
     </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>

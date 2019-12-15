@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Edit Roles</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <ng-container *ngFor="let role of data.roles">
+      <div>
+        <mat-checkbox [formControlName]="role.id">{{role.displayName}}</mat-checkbox>
+      </div>
+    </ng-container>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button [mat-dialog-close] cdkFocusInitial color="accent" mat-flat-button>Close</button>
+</div>

@@ -9,9 +9,9 @@ import { UserAPI } from '../../api/user.api';
 export class UserEffects {
 
   @Effect()
-  loadUsers$ = this.actions$.pipe(
-    ofType(UserActions.loadUsers.type),
-    concatMap(() => this.userAPI.getAll()
+  loadUsers$ = this._actions$.pipe(
+    ofType(UserActions.loadUsers),
+    concatMap(() => this._userAPI.getAll()
       .pipe(
         map(users => UserActions.loadUsersSuccess({users})),
         catchError((error) => of(UserActions.loadUsersFailure({error})))
@@ -19,7 +19,18 @@ export class UserEffects {
     )
   );
 
-  constructor(private actions$: Actions, private userAPI: UserAPI) {
+  @Effect()
+  patchUser$ = this._actions$.pipe(
+    ofType(UserActions.patchUser),
+    concatMap((action) => this._userAPI.patchUser(action.userId, action.userPartial)
+      .pipe(
+        map(user => UserActions.patchUserSuccess({user})),
+        catchError((error) => of(UserActions.patchUserFailure({error})))
+      )
+    )
+  );
+
+  constructor(private _actions$: Actions, private _userAPI: UserAPI) {
   }
 
 }

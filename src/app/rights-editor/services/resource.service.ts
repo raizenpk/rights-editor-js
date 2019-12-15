@@ -12,16 +12,16 @@ import { Dictionary } from '@ngrx/entity';
 })
 export class ResourceService {
 
-  constructor(private store: Store<fromResource.State>) {
+  constructor(private _store: Store<fromResource.State>) {
     this.loadResources();
   }
 
   loadResources() {
-    this.store.dispatch(ResourceActions.loadResources());
+    this._store.dispatch(ResourceActions.loadResources());
   }
 
   getAllAsDictionary(): Observable<Dictionary<Resource>> {
-    return this.store.select(ResourceSelectors.selectEntities);
+    return this._store.select(ResourceSelectors.selectEntities);
   }
 
 }

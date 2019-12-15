@@ -9,9 +9,9 @@ import { of } from 'rxjs';
 export class RoleEffects {
 
   @Effect()
-  loadRoles$ = this.actions$.pipe(
-    ofType(RoleActions.loadRoles.type),
-    concatMap(() => this.roleAPI.getAll()
+  loadRoles$ = this._actions$.pipe(
+    ofType(RoleActions.loadRoles),
+    concatMap(() => this._roleAPI.getAll()
       .pipe(
         map(roles => RoleActions.loadRolesSuccess({roles})),
         catchError((error) => of(RoleActions.loadRolesFailure({error})))
@@ -19,7 +19,7 @@ export class RoleEffects {
     )
   );
 
-  constructor(private actions$: Actions, private roleAPI: RoleAPI) {
+  constructor(private _actions$: Actions, private _roleAPI: RoleAPI) {
   }
 
 }

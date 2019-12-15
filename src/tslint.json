@@ -16,6 +16,11 @@
       ],
       "kebab-case"
     ],
-    "no-empty-interface": false
+    "no-empty-interface": false,
+    "variable-name": {
+      "options": [
+        "allow-leading-underscore"
+      ]
+    }
   }
 }

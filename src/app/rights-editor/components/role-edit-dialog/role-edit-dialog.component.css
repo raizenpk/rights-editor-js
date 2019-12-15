@@ -1,0 +1,7 @@
+.mat-dialog-content {
+  overflow: inherit;
+}
+
+.mat-dialog-actions {
+  flex-direction: row-reverse;
+}

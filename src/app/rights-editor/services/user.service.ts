@@ -11,16 +11,24 @@ import { User } from '../models/user';
 })
 export class UserService {
 
-  constructor(private store: Store<fromUser.State>) {
+  constructor(private _store: Store<fromUser.State>) {
     this.loadUsers();
   }
 
   loadUsers() {
-    this.store.dispatch(UserActions.loadUsers());
+    this._store.dispatch(UserActions.loadUsers());
   }
 
   getUsers(): Observable<User[]> {
-    return this.store.select(UserSelectors.selectAll);
+    return this._store.select(UserSelectors.selectAll);
+  }
+
+  getUserById(userId: string): Observable<User> {
+    return this._store.select(UserSelectors.getUserById, {userId});
+  }
+
+  patchUser(userId: string, userPartial: object) {
+    this._store.dispatch(UserActions.patchUser({userId, userPartial}));
   }
 
 }

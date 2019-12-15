@@ -9,9 +9,9 @@ import { of } from 'rxjs';
 export class ResourceEffects {
 
   @Effect()
-  loadResources$ = this.actions$.pipe(
-    ofType(ResourceActions.loadResources.type),
-    concatMap(() => this.resourceAPI.getAll()
+  loadResources$ = this._actions$.pipe(
+    ofType(ResourceActions.loadResources),
+    concatMap(() => this._resourceAPI.getAll()
       .pipe(
         map(resources => ResourceActions.loadResourcesSuccess({resources})),
         catchError((error) => of(ResourceActions.loadResourcesFailure({error})))
@@ -19,7 +19,7 @@ export class ResourceEffects {
     )
   );
 
-  constructor(private actions$: Actions, private resourceAPI: ResourceAPI) {
+  constructor(private _actions$: Actions, private _resourceAPI: ResourceAPI) {
   }
 
 }

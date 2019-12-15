@@ -17,10 +17,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserListItemComponent } from './components/user-list/user-list-item/user-list-item.component';
 import { UserPermissionsComponent } from './components/user-permissions/user-permissions.component';
-import { MatButtonModule, MatChipsModule, MatExpansionModule, MatListModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatChipsModule, MatDialogModule, MatExpansionModule, MatListModule } from '@angular/material';
+import { RoleEditDialogComponent } from './components/role-edit-dialog/role-edit-dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [ UserListView, UserListComponent, UserListItemComponent, UserPermissionsComponent ],
+  declarations: [ UserListView, UserListComponent, UserListItemComponent, UserPermissionsComponent, RoleEditDialogComponent ],
   imports: [
     CommonModule,
     CoreModule,
@@ -34,7 +36,13 @@ import { MatButtonModule, MatChipsModule, MatExpansionModule, MatListModule } fr
     MatExpansionModule,
     MatChipsModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule,
+    MatCheckboxModule,
+    ReactiveFormsModule
+  ],
+  entryComponents: [
+    RoleEditDialogComponent
   ]
 })
 export class RightsEditorModule {

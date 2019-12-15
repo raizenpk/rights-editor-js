@@ -16,3 +16,18 @@ export const loadUsersFailure = createAction(
   PREFIX + 'loadUsersFailure',
   props<{ error: any }>()
 );
+
+export const patchUser = createAction(
+  PREFIX + 'patchUser',
+  props<{ userId: string, userPartial: object }>()
+);
+
+export const patchUserSuccess = createAction(
+  PREFIX + 'patchUserSuccess',
+  props<{ user: User }>()
+);
+
+export const patchUserFailure = createAction(
+  PREFIX + 'patchUserFailure',
+  props<{ error: any }>()
+);

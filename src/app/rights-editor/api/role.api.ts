@@ -15,11 +15,11 @@ import { Role } from '../models/role';
 export class RoleAPI extends HttpService {
 
   constructor(
-    public http: HttpClient,
-    @Inject(BASE_API_URL) public baseApiUrl: string
+    private _http: HttpClient,
+    @Inject(BASE_API_URL) private _baseApiUrl: string
   ) {
-    super(http, {
-      Url: baseApiUrl
+    super(_http, {
+      Url: _baseApiUrl
     });
   }
 
