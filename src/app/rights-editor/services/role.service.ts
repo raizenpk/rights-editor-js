@@ -7,7 +7,7 @@ import * as RoleSelectors from '../store/selectors/role.selectors';
 import { Permission, Role } from '../models/role';
 import { Resource } from '../models/resource';
 import { ResourceService } from './resource.service';
-import { map } from 'rxjs/operators';
+import { first, map } from 'rxjs/operators';
 import { Dictionary } from '@ngrx/entity';
 
 @Injectable({
@@ -30,9 +30,11 @@ export class RoleService {
   getPermissionsForRoles(roleIds: string[]): Observable<Permission[]> {
     let resourcesDictionary: Dictionary<Resource> = {};
 
-    this._resourceService.getAllAsDictionary().subscribe(dictionary => {
-      resourcesDictionary = dictionary;
-    });
+    this._resourceService.getAllAsDictionary()
+      .pipe(first())
+      .subscribe(dictionary => {
+        resourcesDictionary = dictionary;
+      });
 
     return this._store.select(RoleSelectors.selectUniquePermissions, {roleIds})
       .pipe(map(

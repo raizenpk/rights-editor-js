@@ -27,7 +27,10 @@ export const selectUniquePermissions = createSelector(
       rolePermissions.forEach(permission => {
         if (!uniquePermissionIds.includes(permission.resource)) {
           uniquePermissionIds.push(permission.resource);
-          uniquePermissions.push(permission);
+          uniquePermissions.push({
+            resource: permission.resource,
+            operation: [ ...permission.operation ]
+          });
         } else {
           const uniquePermission = uniquePermissions.find(evaluatedPermission => evaluatedPermission.resource === permission.resource);
           permission.operation.forEach(operation => {
